@@ -1,0 +1,19 @@
+<div class="card">
+  <div class="card__img">
+    <p class="card__tagOffer" *ngIf="isOferta" >50% de descuento</p>
+    <img src="" alt="">
+  </div>
+  <div class="card__content">
+    <p>MAPI Express 3D/2N</p>
+    <p>City tour + Machu Picchu en hotel 3 estrellas</p>
+    <p class="card__priceOffer" *ngIf="isOferta" >Antes: S/ 779</p>
+    <p class="card__price">{{ isOferta ? "Ahora" : "Desde" }}: S/ 559</p>
+    <p class="card__disclaimer">*Tarifa por pasajero</p>
+
+    <button nz-button nzType="primary">
+      RESERVAR
+      <span nz-icon nzType="send" nzTheme="outline"></span>
+    </button>
+
+  </div>
+</div>

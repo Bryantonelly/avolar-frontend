@@ -1,0 +1,76 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+
+  <a class="navbar-brand" href="#">
+    <img src="..\..\..\assets\img\logo.png" alt="logo">
+  </a>
+
+  <div
+    class="navbar-toggler"
+    type="button" data-toggle="collapse"
+    data-target="#navbarColor03"
+    aria-controls="navbarColor03"
+    aria-expanded="false" aria-label="Toggle navigation"
+    (click)="isCollapsed = !isCollapsed"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </div>
+
+  <div class="collapse navbar-collapse" id="navbarColor03" [ngbCollapse]="isCollapsed">
+
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">PAQUETES</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#ofertas">VUELOS</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">TELÉFONO</a>
+      </li>
+    </ul>
+
+  </div>
+
+</nav>
+
+<section class="poster" id="poster">
+  <p>VIAJA</p>
+</section>
+
+<app-filter myPositionDirective [initialTop]="-20" class="filter__container"></app-filter>
+
+<section myPositionDirectiveTop [initialTop]="-80" class="ofertas" id="ofertas">
+  <h3 class="subtitle" nz-typography>Ofertas</h3>
+  <div #scrollableDiv  class="carousel-wrapper">
+    <div class="ofertas__arrow" (click)="scroll(-100)">
+      <span nz-icon nzType="left" nzTheme="outline"></span>
+    </div>
+    <div class="ofertas__arrow" (click)="scroll(100)">
+      <span nz-icon nzType="right" nzTheme="outline"></span>
+    </div>
+    <app-card [isOferta] = true></app-card>
+    <app-card [isOferta] = true></app-card>
+    <app-card [isOferta] = true></app-card>
+    <app-card [isOferta] = true></app-card>
+    <app-card [isOferta] = true></app-card>
+  </div>
+</section>
+
+<section class="paquetes" id="paquetes">
+  <h3 class="subtitle" nz-typography>Paquetes</h3>
+  <div class="paquetes__body">
+    <app-card></app-card>
+    <app-card></app-card>
+    <app-card></app-card>
+    <app-card></app-card>
+    <app-card></app-card>
+    <app-card></app-card>
+    <app-card></app-card>
+    <app-card></app-card>
+    <app-card></app-card>
+    <app-card></app-card>
+  </div>
+</section>
+
+
+

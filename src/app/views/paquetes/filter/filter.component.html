@@ -1,0 +1,70 @@
+<div class="filter" id="filter" >
+  <div class="filter__header">
+  </div>
+  <div class="filter__body">
+    <form nz-form [nzLayout]="'inline'" [formGroup]="filtroForm" >
+
+      <nz-form-item>
+        <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired>Destino</nz-form-label>
+        <nz-form-control [nzSm]="16" [nzXs]="24" nzErrorTip="Por favor ingresa tu destino!">
+          <nz-select formControlName="destino" nzShowSearch nzAllowClear nzPlaceHolder="Selecciona tu destino" >
+            <nz-option nzLabel="Lima" nzValue="Lima"></nz-option>
+            <nz-option nzLabel="Arequipa" nzValue="Arequipa"></nz-option>
+            <nz-option nzLabel="Huancayo" nzValue="Huancayo"></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+
+      <!-- Fecha -->
+      <nz-form-item>
+        <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired>Fecha</nz-form-label>
+        <nz-form-control [nzSm]="16" [nzXs]="24">
+          <nz-range-picker formControlName="fecha"></nz-range-picker>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item
+      >
+        <nz-form-label [nzSm]="10" [nzXs]="24" nzRequired>Pasajeros</nz-form-label>
+        <nz-input-number
+          nz-popover
+          [nzPopoverTitle]="titleTemplate"
+          [nzPopoverContent]="contentTemplate"
+          [nzPopoverOverlayClassName]="'popover_style'"
+          formControlName="cantTotal"
+          [nzMin]="1"
+          [nzMax]="10"
+          [nzStep]="1"
+          [nzDisabled]="true">
+        </nz-input-number>
+      </nz-form-item>
+
+      <ng-template #titleTemplate>
+        <span nz-icon nzType="close"></span>
+        Pasajeros
+      </ng-template>
+
+      <ng-template #contentTemplate>
+        <nz-form-item>
+          <nz-form-label nzRequired>Adultos</nz-form-label>
+          <nz-input-number formControlName="cantAdultos"
+          [nzMin]="1" [nzMax]="10" [nzStep]="1"
+          (ngModelChange)="onChangeCantPasajeros()"></nz-input-number>
+        </nz-form-item>
+        <br>
+        <nz-form-item>
+          <nz-form-label nzRequired>Niños</nz-form-label>
+          <nz-input-number formControlName="cantNinios"
+          [nzMin]="1" [nzMax]="10" [nzStep]="1"
+          (ngModelChange)="onChangeCantPasajeros()"></nz-input-number>
+        </nz-form-item>
+      </ng-template>
+
+      <nz-form-item>
+        <nz-form-control>
+          <button nz-button nzType="primary" [disabled]="!filtroForm.valid">Buscar</button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </div>
+</div>
